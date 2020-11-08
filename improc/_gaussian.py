@@ -25,7 +25,8 @@ def gaussian_filter(image: np.ndarray, kernel_size: int = 5,
     image = img_as_float(image)
     # convert image to image with pad
     padding = kernel_size // 2
-    image = np.pad(image, padding, 'linear_ramp')
+    pad_width = ((padding, padding), (padding, padding), (0, 0))
+    image = np.pad(image, pad_width, 'linear_ramp')
     # create gaussian vector
     pattern = np.pad([0], (padding, padding), 'linear_ramp', end_values=2)
     g = gaussian_function_1D(pattern, sigma).reshape(-1)

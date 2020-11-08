@@ -51,10 +51,15 @@ def apply_filter(message):
         photo = im.gaussian_filter(photo)
     elif filt_name == Filters.Gray_filter.name:
         photo = im.rgb2gray(photo)
+    elif filt_name == Filters.Edge_filter.name:
+        photo = im.detect_edge(photo)
+    elif filt_name == Filters.Adjust_contrast_brightness.name:
+        photo = im.adjust_contast_brightness(photo, 0.5, 0.5)
     else:
         bot.reply_to(message, "Oooups")
         return
 
+    photo = im.img_as_ubyte(photo)
     im.io.imsave('photo_{chat_id}.jpg'.format(chat_id=chat_id), photo)
 
     img = open('photo_{chat_id}.jpg'.format(chat_id=chat_id), 'rb')

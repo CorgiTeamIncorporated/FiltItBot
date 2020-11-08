@@ -1,5 +1,6 @@
 import numpy as np
-from _rgb2gray import rgb2gray
+from ._rgb2gray import rgb2gray
+from ._gaussian import gaussian_filter
 from skimage.util import img_as_float
 
 
@@ -11,6 +12,7 @@ def detect_edge(image: np.ndarray, threshhold: float = 0.5) -> np.ndarray:
     edges = np.zeros(image.shape)
 
     image = img_as_float(image)
+    image = gaussian_filter(image, kernel_size=3)
     if len(image.shape) != 2:
         image = rgb2gray(image)
 
