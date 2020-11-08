@@ -1,5 +1,6 @@
 import numpy as np
 from _rgb2gray import rgb2gray
+from skimage.util import img_as_float
 
 
 def detect_edge(image: np.ndarray, threshhold: float = 0.5) -> np.ndarray:
@@ -9,6 +10,7 @@ def detect_edge(image: np.ndarray, threshhold: float = 0.5) -> np.ndarray:
 
     edges = np.zeros(image.shape)
 
+    image = img_as_float(image)
     if len(image.shape) != 2:
         image = rgb2gray(image)
 
