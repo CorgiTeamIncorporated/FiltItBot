@@ -1,4 +1,8 @@
-def rgb2gray(image):
+import numpy as np
+
+
+def rgb2gray(image: np.ndarray) -> np.ndarray:
+    # processing
     image = image/255.0
     R = 0.2125*image[:, :, 0]
     G = 0.7154*image[:, :, 1]
