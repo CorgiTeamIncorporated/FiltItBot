@@ -1,7 +1,7 @@
 # Ignore file token.txt.
 config.py
 
-# Ignore __pycache__ folders
-__pycache__
+# Ignore with folder with bot's logs
+__pycache__/
 improc/__pycache__
 telegram/__pycache__
