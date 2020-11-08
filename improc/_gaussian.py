@@ -37,6 +37,8 @@ def gaussian_filter(image: np.ndarray, kernel_size: int = 5,
         for j in range(padding, image.shape[1]-padding):
             temp_image[i, j] = np.sum(image[i, j-padding:j+padding+1].T*g,
                                       axis=1)
+
+    temp_image = np.clip(temp_image, 0, 1)
     if padding > 0:
         return temp_image[padding:-padding, padding:-padding]
     else:
