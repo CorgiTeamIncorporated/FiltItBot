@@ -4,7 +4,7 @@ from ._filters_enum import Filters
 import improc as im
 
 
-# dict with photoes by message
+# dict with photos by message
 chat_dict = {}
 
 
